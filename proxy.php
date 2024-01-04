@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if ($_SERVER['REQUEST_URI'] === '/') {
         $data = file_get_contents(dirname(__FILE__).'/bare-server.json');
-        header('HTTP/1.1 200 OK');
+        http_response_code(200);
         header('Content-Type: application/json');
         echo $data;
     } else {
@@ -32,10 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                   if (in_array(intval(substr($http_response_header[0], 9, 3)), $pass_status)) {
                       header($http_response_header[0]);
                   } else {
-                      header('HTTP/1.1 200 OK');
+                      http_response_code(200);
                   }
               } else {
-                  header('HTTP/1.1 200 OK');
+                http_response_code(200);
               }
               header('Cache-Control: no-cache');
               header('ETag: '.(isset($resp_headers['ETag']) ? $resp_headers['ETag'] : ''));
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
               }
               echo $resp;
           } else {
-              header('HTTP/1.1 400 Bad Request');
+              http_response_code(400);
               echo "Missing x-bare-url header";
           }
         else {
