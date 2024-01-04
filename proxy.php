@@ -60,7 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
               echo "Missing x-bare-url header";
           }
         else {
-          echo ""
+          http_response_code(404);
+          echo "404"
         }
     }
 }
