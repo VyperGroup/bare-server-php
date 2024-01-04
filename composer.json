@@ -1,0 +1,16 @@
+{
+  "name": "vypergroup/bare-php-server",
+  "description": "Implements the TompHTTP V3 standard",
+  "require": {
+    "composer-plugin-api": "^2.0",
+    "devfym/intelliphp": "^0.0.2",
+    "cboden/ratchet": "^0.4.4",
+    "lecanardnoir/cpanel-uapi-php": "^1.0"
+  },
+  "require-dev": {
+    "composer/composer": "^2.6.6"
+  },
+  "extra": {
+    "class": "My\\Plugin"
+  }
+}
